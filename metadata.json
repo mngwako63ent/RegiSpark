@@ -1,0 +1,6 @@
+{
+  "name": "RegiSpark - Digital Business Registration South Africa",
+  "description": "Register your South African Pty Ltd company online from your phone without leaving home. CIPC registration, SARS tax assistance, and digital document delivery in 3–5 business days.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
