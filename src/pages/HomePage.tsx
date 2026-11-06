@@ -17,6 +17,11 @@ import {
 } from 'lucide-react';
 import { PACKAGES } from '../data/packages';
 import { REGISPARK_CONFIG } from '../data/config';
+import { 
+  heroEntrepreneurImg, 
+  digitalRegistrationDeskImg, 
+  IMAGE_FALLBACKS 
+} from '../assets/images';
 
 interface HomePageProps {
   onNavigate: (page: string, packageId?: string) => void;
@@ -136,7 +141,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenTracker })
                   
                   <div className="relative rounded-[1.6rem] overflow-hidden aspect-[4/3] lg:aspect-[16/12] bg-[#141E30]">
                     <img
-                      src="/src/assets/images/hero_entrepreneur_phone_1793871448249.jpg"
+                      src={heroEntrepreneurImg}
+                      onError={(e) => {
+                        e.currentTarget.src = IMAGE_FALLBACKS.heroEntrepreneur;
+                      }}
                       alt="Young South African entrepreneur using RegiSpark on smartphone in modern workspace"
                       className="w-full h-full object-cover object-center"
                       referrerPolicy="no-referrer"
@@ -520,7 +528,10 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenTracker })
             <div className="lg:col-span-6">
               <div className="relative rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl aspect-[4/3] bg-slate-900">
                 <img
-                  src="/src/assets/images/digital_registration_desk_1793871448812.jpg"
+                  src={digitalRegistrationDeskImg}
+                  onError={(e) => {
+                    e.currentTarget.src = IMAGE_FALLBACKS.digitalRegistrationDesk;
+                  }}
                   alt="Modern workspace with registration documents on laptop and smartphone"
                   className="w-full h-full object-cover"
                   referrerPolicy="no-referrer"

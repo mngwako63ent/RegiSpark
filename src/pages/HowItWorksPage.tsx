@@ -15,6 +15,7 @@ import {
   FileCheck2
 } from 'lucide-react';
 import { REGISPARK_CONFIG } from '../data/config';
+import { mobileVerificationLifestyleImg, IMAGE_FALLBACKS } from '../assets/images';
 
 interface HowItWorksPageProps {
   onNavigate: (page: string, packageId?: string) => void;
@@ -144,60 +145,83 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate }) =>
       </section>
 
       {/* Document Requirements Checklist Box */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-[#F1F3F6] rounded-3xl p-8 sm:p-10 border border-slate-200">
-          <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold text-[#FF702E] uppercase tracking-wider">
-              Document Preparation Checklist
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101D35]">
-              What You Need Ready to Apply
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-              We keep requirements to the statutory minimum. You do not need piles of paperwork or physical affidavits before you start.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-xs font-bold text-[#FF702E] uppercase tracking-wider">
+                Document Preparation Checklist
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#101D35]">
+                What You Need Ready to Apply
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                We keep requirements to the statutory minimum. You do not need piles of paperwork or physical affidavits before you start.
+              </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
-                <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
-                  <FileCheck2 className="w-4 h-4 text-[#FF702E]" />
-                  <span>South African ID Document</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                    <FileCheck2 className="w-4 h-4 text-[#FF702E]" />
+                    <span>South African ID Document</span>
+                  </div>
+                  <p className="text-xs text-slate-500">
+                    A clear photo or scanned copy of your Green Barcoded ID Book, Smart ID Card (front and back), or valid Passport.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500">
-                  A clear photo or scanned copy of your Green Barcoded ID Book, Smart ID Card (front and back), or valid Passport.
-                </p>
-              </div>
 
-              <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
-                <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
-                  <Smartphone className="w-4 h-4 text-[#FF702E]" />
-                  <span>Proposed Company Names</span>
+                <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                    <Smartphone className="w-4 h-4 text-[#FF702E]" />
+                    <span>Proposed Company Names</span>
+                  </div>
+                  <p className="text-xs text-slate-500">
+                    Up to 2 preferred business names in order of preference for the CIPC name reservation search.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500">
-                  Up to 2 preferred business names in order of preference for the CIPC name reservation search.
-                </p>
-              </div>
 
-              <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
-                <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
-                  <CreditCard className="w-4 h-4 text-[#FF702E]" />
-                  <span>50% Deposit Payment</span>
+                <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                    <CreditCard className="w-4 h-4 text-[#FF702E]" />
+                    <span>50% Deposit Payment</span>
+                  </div>
+                  <p className="text-xs text-slate-500">
+                    R499.50 (Starter) or R749.50 (Plus) payable via debit/credit card, Instant EFT or supported e-wallet.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500">
-                  R499.50 (Starter) or R749.50 (Plus) payable via debit/credit card, Instant EFT or supported e-wallet.
-                </p>
-              </div>
 
-              <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
-                <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
-                  <ShieldCheck className="w-4 h-4 text-[#FF702E]" />
-                  <span>Contact WhatsApp & Email</span>
+                <div className="bg-white p-4 rounded-xl border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                    <ShieldCheck className="w-4 h-4 text-[#FF702E]" />
+                    <span>Contact WhatsApp & Email</span>
+                  </div>
+                  <p className="text-xs text-slate-500">
+                    Your active WhatsApp number and email to receive digital status updates and final PDF certificates.
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500">
-                  Your active WhatsApp number and email to receive digital status updates and final PDF certificates.
-                </p>
               </div>
             </div>
+
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-[4/3] bg-slate-900 relative">
+                <img
+                  src={mobileVerificationLifestyleImg}
+                  onError={(e) => {
+                    e.currentTarget.src = IMAGE_FALLBACKS.mobileVerificationLifestyle;
+                  }}
+                  alt="South African business owner taking a photo of their ID card for RegiSpark digital submission"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#101D35]/80 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white text-xs">
+                  <p className="font-bold">Fast Smartphone Uploads</p>
+                  <p className="text-slate-300 text-[11px]">Upload your SA Smart ID or Green Book directly from your camera</p>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

@@ -11,6 +11,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { REGISPARK_CONFIG } from '../data/config';
+import { teamConsultationFounderImg, IMAGE_FALLBACKS } from '../assets/images';
 
 interface AboutPageProps {
   onNavigate: (page: string, packageId?: string) => void;
@@ -59,7 +60,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="lg:col-span-5">
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 aspect-[4/3] bg-slate-100 relative">
               <img
-                src="/src/assets/images/team_consultation_founder_1793871449637.jpg"
+                src={teamConsultationFounderImg}
+                onError={(e) => {
+                  e.currentTarget.src = IMAGE_FALLBACKS.teamConsultationFounder;
+                }}
                 alt="Young South African business founders celebrating company milestone"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
